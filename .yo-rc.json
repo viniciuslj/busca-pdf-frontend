@@ -1,0 +1,28 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "nativeLanguage": "pt-br"
+    },
+    "jhipsterVersion": "4.14.4",
+    "baseName": "buscapdf",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "yarn",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "applicationType": "monolith",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "pt-br",
+    "languages": [
+      "pt-br"
+    ],
+    "skipServer": true
+  }
+}
