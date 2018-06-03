@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JhiLanguageService } from 'ng-jhipster';
 
 import { Principal, AccountService, JhiLanguageHelper } from '../../shared';
+import { UserExtraService, UserExtra } from '../../entities/user-extra';
 
 @Component({
     selector: 'jhi-settings',
@@ -12,18 +13,25 @@ export class SettingsComponent implements OnInit {
     success: string;
     settingsAccount: any;
     languages: any[];
+    userExtra: UserExtra;
+    saving: boolean;
 
     constructor(
         private account: AccountService,
         private principal: Principal,
         private languageService: JhiLanguageService,
-        private languageHelper: JhiLanguageHelper
+        private languageHelper: JhiLanguageHelper,
+        private userExtraService: UserExtraService
     ) {
+        this.saving = false;
     }
 
     ngOnInit() {
         this.principal.identity().then((account) => {
-            this.settingsAccount = this.copyAccount(account);
+            this.userExtraService.find(account.id).subscribe((response) => {
+                this.settingsAccount = this.copyAccount(account);
+                this.userExtra = response.body;
+            });
         });
         this.languageHelper.getAll().then((languages) => {
             this.languages = languages;
@@ -31,12 +39,19 @@ export class SettingsComponent implements OnInit {
     }
 
     save() {
+        this.saving = true;
         this.account.save(this.settingsAccount).subscribe(() => {
             this.error = null;
             this.success = 'OK';
+            this.saving = false;
+
             this.principal.identity(true).then((account) => {
-                this.settingsAccount = this.copyAccount(account);
+                this.userExtraService.find(account.id).subscribe((response) => {
+                    this.settingsAccount = this.copyAccount(account);
+                    this.userExtra = response.body;
+                });
             });
+
             this.languageService.getCurrent().then((current) => {
                 if (this.settingsAccount.langKey !== current) {
                     this.languageService.changeLanguage(this.settingsAccount.langKey);
@@ -45,11 +60,13 @@ export class SettingsComponent implements OnInit {
         }, () => {
             this.success = null;
             this.error = 'ERROR';
+            this.saving = false;
         });
     }
 
     copyAccount(account) {
         return {
+            id: account.id,
             activated: account.activated,
             email: account.email,
             firstName: account.firstName,

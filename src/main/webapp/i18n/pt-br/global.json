@@ -13,11 +13,12 @@
             "account": {
                 "main": "Conta",
                 "settings": "Configuração",
+                "mydata": "Meus Dados",
                 "password": "Senha",
                 "sessions": "Sessões",
                 "login": "Entrar",
                 "logout": "Sair",
-                "register": "Registrar"
+                "register": "Criar Conta"
             },
             "admin": {
                 "main": "Administração",
