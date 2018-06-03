@@ -35,14 +35,14 @@
             "language": "Idioma"
         },
         "form": {
-            "username": "Usuário",
-            "username.placeholder": "Seu usuário",
+            "username": "Login",
+            "username.placeholder": "Ex.: joao.silva",
             "newpassword": "Nova senha",
             "newpassword.placeholder": "Nova senha",
             "confirmpassword": "Confirmação de nova senha",
             "confirmpassword.placeholder": "Confirme a nova senha",
             "email": "Email",
-            "email.placeholder": "Seu email"
+            "email.placeholder": "Ex.: joao.silva@email.com.br"
         },
         "messages": {
             "info": {
