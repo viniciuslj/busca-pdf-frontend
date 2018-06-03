@@ -3,7 +3,7 @@
         "home": {
             "title": "Usuários",
             "createLabel": "Adicionar",
-             "createOrEditLabel": "Criar ou editar usuário"
+            "createOrEditLabel": "Criar ou editar usuário"
         },
         "created": "Novo usuário foi criado com a identificação {{ param }}",
         "updated": "Usuário com a identificação {{ param }} foi atualizado ",
@@ -12,9 +12,10 @@
             "question": "Você tem certeza que deseja excluir o usuário {{ login }}?"
         },
         "detail": {
-            "title": "Usuário"
+            "title": "Dados do Usuário"
         },
         "login": "Login",
+        "name": "Nome",
         "firstName": "Primeiro nome",
         "lastName": "Último nome",
         "email": "Email",

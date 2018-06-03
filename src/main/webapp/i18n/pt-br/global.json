@@ -57,7 +57,7 @@
                 }
             },
             "error": {
-                "dontmatch" : "A senha e sua confirmação devem ser iguais!"
+                "dontmatch": "A senha e sua confirmação devem ser iguais!"
             },
             "validate": {
                 "newpassword": {
@@ -80,10 +80,10 @@
             }
         },
         "field": {
-            "id" : "Código"
+            "id": "Código"
         },
         "ribbon": {
-            "dev":"Development"
+            "dev": "Development"
         },
         "item-count": "Mostrando {{first}} - {{second}} de {{total}} resultados."
     },
@@ -95,7 +95,8 @@
             "cancel": "Cancelar",
             "delete": "Excluir",
             "edit": "Editar",
-            "open": "Open",
+            "open": "Abrir",
+            "close": "Fechar",
             "save": "Salvar",
             "view": "Visualizar"
         },
