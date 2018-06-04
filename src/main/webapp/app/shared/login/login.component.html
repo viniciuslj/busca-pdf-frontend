@@ -14,13 +14,11 @@
             <form class="form" role="form" (ngSubmit)="login()">
                 <div class="form-group">
                     <label for="username" jhiTranslate="global.form.username">Login</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="{{'global.form.username.placeholder' | translate}}"
-                    [(ngModel)]="username">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="{{'global.form.username.placeholder' | translate}}" [(ngModel)]="username">
                 </div>
                 <div class="form-group">
                     <label for="password" jhiTranslate="login.form.password">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="{{'login.form.password.placeholder' | translate}}"
-                           [(ngModel)]="password">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="{{'login.form.password.placeholder' | translate}}" [(ngModel)]="password">
                 </div>
                 <div class="form-check">
                     <label class="form-check-label" for="rememberMe">
@@ -28,7 +26,14 @@
                         <span jhiTranslate="login.form.rememberme">Remember me</span>
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary" jhiTranslate="login.form.button">Sign in</button>
+
+                <div class="form-group margin-top-10">
+                    <button type="submit" class="btn btn-primary" [disabled]="inProcess">
+                        <span class="fa fa-spinner fa-pulse fa-lg" *ngIf="inProcess"></span>
+                        <span jhiTranslate="login.form.button">Sign in</span>
+                    </button>
+                </div>
+
             </form>
             <p></p>
             <div class="alert alert-warning">

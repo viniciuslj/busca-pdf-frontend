@@ -16,6 +16,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
     rememberMe: boolean;
     username: string;
     credentials: any;
+    inProcess: boolean;
 
     constructor(
         private eventManager: JhiEventManager,
@@ -27,6 +28,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
         public activeModal: NgbActiveModal
     ) {
         this.credentials = {};
+        this.inProcess = false;
     }
 
     ngAfterViewInit() {
@@ -44,11 +46,13 @@ export class JhiLoginModalComponent implements AfterViewInit {
     }
 
     login() {
+        this.inProcess = true;
         this.loginService.login({
             username: this.username,
             password: this.password,
             rememberMe: this.rememberMe
         }).then(() => {
+            this.inProcess = false;
             this.authenticationError = false;
             this.activeModal.dismiss('login success');
             if (this.router.url === '/register' || (/^\/activate\//.test(this.router.url)) ||
@@ -70,6 +74,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
             }
         }).catch(() => {
             this.authenticationError = true;
+            this.inProcess = false;
         });
     }
 

@@ -14,7 +14,7 @@ export class SettingsComponent implements OnInit {
     settingsAccount: any;
     languages: any[];
     userExtra: UserExtra;
-    saving: boolean;
+    inProcess: boolean;
 
     constructor(
         private account: AccountService,
@@ -23,7 +23,7 @@ export class SettingsComponent implements OnInit {
         private languageHelper: JhiLanguageHelper,
         private userExtraService: UserExtraService
     ) {
-        this.saving = false;
+        this.inProcess = false;
     }
 
     ngOnInit() {
@@ -39,11 +39,11 @@ export class SettingsComponent implements OnInit {
     }
 
     save() {
-        this.saving = true;
+        this.inProcess = true;
         this.account.save(this.settingsAccount).subscribe(() => {
             this.error = null;
             this.success = 'OK';
-            this.saving = false;
+            this.inProcess = false;
 
             this.principal.identity(true).then((account) => {
                 this.userExtraService.find(account.id).subscribe((response) => {
@@ -60,7 +60,7 @@ export class SettingsComponent implements OnInit {
         }, () => {
             this.success = null;
             this.error = 'ERROR';
-            this.saving = false;
+            this.inProcess = false;
         });
     }
 

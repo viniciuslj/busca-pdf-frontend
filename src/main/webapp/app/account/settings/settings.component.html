@@ -89,8 +89,8 @@
                     <input type="number" class="form-control" name="functionalNumber" id="functionalNumber" [value]="userExtra.functionalNumber" disabled/>
                 </div>
 
-                <button type="submit" [disabled]="settingsForm.form.invalid || saving" class="btn btn-primary">
-                    <span class="fa fa-spinner fa-pulse fa-lg" *ngIf="saving"></span>
+                <button type="submit" [disabled]="settingsForm.form.invalid || inProcess" class="btn btn-primary">
+                    <span class="fa fa-spinner fa-pulse fa-lg" *ngIf="inProcess"></span>
                     <span jhiTranslate="settings.form.button">Save</span>
                 </button>
             </form>
