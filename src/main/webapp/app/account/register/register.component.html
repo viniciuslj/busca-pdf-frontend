@@ -183,7 +183,10 @@
                     </div>
                 </div>
 
-                <button type="submit" [disabled]="registerForm.form.invalid" class="btn btn-primary" jhiTranslate="register.form.button">Register</button>
+                <button type="submit" [disabled]="registerForm.form.invalid || inProcess" class="btn btn-primary">
+                    <span class="fa fa-spinner fa-pulse fa-lg" *ngIf="inProcess"></span>
+                    <span jhiTranslate="register.form.button">Register</span>
+                </button>
             </form>
 
         </div>
