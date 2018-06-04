@@ -1,7 +1,7 @@
-
 /* ==========================================================================
 Navbar
 ========================================================================== */
+
 .navbar-version {
     font-size: 10px;
     color: #ccc
@@ -16,7 +16,9 @@ Navbar
         width: 40px;
         border-radius: 50%;
     }
-    .dropdown-item.active, .dropdown-item.active:focus, .dropdown-item.active:hover {
+    .dropdown-item.active,
+    .dropdown-item.active:focus,
+    .dropdown-item.active:hover {
         background-color: #353d47;
     }
     .dropdown-toggle::after {
@@ -58,9 +60,11 @@ Navbar
     vertical-align: middle;
 }
 
+
 /* ==========================================================================
 Logo styles
 ========================================================================== */
+
 .navbar-brand {
     &.logo {
         padding: 5px 15px;
@@ -69,7 +73,7 @@ Logo styles
             width: 70px;
             display: inline-block;
             vertical-align: middle;
-            background: url("../../../content/images/logo-jhipster.png") no-repeat center center;
+            background: url("../../../content/images/logotipo.png") no-repeat center center;
             background-size: contain;
         }
     }
