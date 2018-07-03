@@ -1,6 +1,8 @@
 {
     "global": {
         "title": "Busca PDF",
+        "yes": "Sim",
+        "Not": "Não",
         "browsehappy": "Você está usando um navegador <strong>desatualizado</strong>. Favor <a href=\"http://browsehappy.com/?locale=pt_BR\">atualizar o seu navegador</a> para ter uma experiência melhor.",
         "menu": {
             "home": "Início",
@@ -8,6 +10,7 @@
             "entities": {
                 "main": "Entidades",
                 "userExtra": "User Extra",
+                "tipoDocumento": "Tipos de Documentos",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
