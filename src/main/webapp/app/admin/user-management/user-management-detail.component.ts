@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserModalService } from './user-modal.service';
 import { User, UserService } from '../../shared';

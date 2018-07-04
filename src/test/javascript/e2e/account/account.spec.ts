@@ -16,10 +16,6 @@ describe('account', () => {
     });
 
     it('should fail to login with bad password', () => {
-        const expect1 = /home.title/;
-        element.all(by.css('h1')).first().getAttribute('jhiTranslate').then((value) => {
-            expect(value).toMatch(expect1);
-        });
         signInPage = navBarPage.getSignInPage();
         signInPage.autoSignInUsing('admin', 'foo');
 
@@ -37,7 +33,7 @@ describe('account', () => {
         signInPage.clearUserName();
         signInPage.setUserName('admin');
         signInPage.clearPassword();
-        signInPage.setPassword('admin');
+        signInPage.setPassword('Admin123');
         signInPage.login();
 
         browser.waitForAngular();
@@ -82,7 +78,7 @@ describe('account', () => {
         // change back to default
         navBarPage.goToPasswordMenu();
         passwordPage.setPassword('admin');
-        passwordPage.setConfirmPassword('admin');
+        passwordPage.setConfirmPassword('Admin123');
         passwordPage.save();
     });
 

@@ -11,7 +11,7 @@ describe('TipoDocumento e2e test', () => {
         browser.get('/');
         browser.waitForAngular();
         navBarPage = new NavBarPage();
-        navBarPage.getSignInPage().autoSignInUsing('admin', 'admin');
+        navBarPage.getSignInPage().autoSignInUsing('admin', 'Admin123');
         browser.waitForAngular();
     });
 
