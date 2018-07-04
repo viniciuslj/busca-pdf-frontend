@@ -9,7 +9,7 @@
         "assets": [
             "content",
             "i18n",
-            "favicon.ico"
+            "favicon.png"
         ],
         "index": "index.html",
         "main": "app/app.main.ts",
@@ -44,21 +44,21 @@
     "defaults": {
         "styleExt": "scss",
         "prefixInterfaces": false,
-        "component" : {
-            "inlineStyle" : true,
+        "component": {
+            "inlineStyle": true,
             "inlineTemplate": false,
             "spec": false
         },
-        "directive" : {
+        "directive": {
             "spec": false
         },
-        "guard" : {
+        "guard": {
             "spec": false
         },
-        "pipe" : {
+        "pipe": {
             "spec": false
         },
-        "service" : {
+        "service": {
             "spec": false
         }
     },

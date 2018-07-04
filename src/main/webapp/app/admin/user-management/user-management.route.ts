@@ -4,7 +4,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes, CanActiva
 import { JhiPaginationUtil } from 'ng-jhipster';
 
 import { UserMgmtComponent } from './user-management.component';
-import { UserMgmtDetailComponent } from './user-management-detail.component';
+import { UserDetailComponent } from './user-management-detail.component';
 import { UserDialogComponent } from './user-management-dialog.component';
 import { UserDeleteDialogComponent } from './user-management-delete-dialog.component';
 
@@ -46,17 +46,15 @@ export const userMgmtRoute: Routes = [
         data: {
             pageTitle: 'userManagement.home.title'
         }
-    },
-    {
-        path: 'user-management/:login',
-        component: UserMgmtDetailComponent,
-        data: {
-            pageTitle: 'userManagement.home.title'
-        }
     }
 ];
 
 export const userDialogRoute: Routes = [
+    {
+        path: 'user-management/:login',
+        component: UserDetailComponent,
+        outlet: 'popup'
+    },
     {
         path: 'user-management-new',
         component: UserDialogComponent,

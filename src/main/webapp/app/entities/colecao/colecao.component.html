@@ -1,0 +1,55 @@
+<div>
+    <h2>
+        <span jhiTranslate="buscapdfApp.colecao.home.title">Colecaos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-colecao" [routerLink]="['/', { outlets: { popup: ['colecao-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="buscapdfApp.colecao.home.createLabel">
+            Create new Colecao
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="colecaos">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><span jhiTranslate="buscapdfApp.colecao.nome">Nome</span></th>
+                    <th><span jhiTranslate="buscapdfApp.colecao.descricao">Descrição</span></th>
+                    <th class="text-center"><span jhiTranslate="buscapdfApp.colecao.ativa">Ativa</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let colecao of colecaos ;trackBy: trackId">
+                    <td>{{colecao.nome}}</td>
+                    <td>{{colecao.descricao}}</td>
+
+                    <td class="text-center">
+                        <span class="badge badge-pill badge-success" *ngIf="colecao.ativa; else naoAtivo">Sim</span>
+
+                        <ng-template #naoAtivo>
+                            <span class="badge badge-pill badge-danger">Não</span>
+                        </ng-template>
+                    </td>
+
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit" [routerLink]="['../colecao', colecao.id ]" class="btn btn-info">
+                            <span class="fa fa-search"></span>
+                        </button>
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'colecao/'+ colecao.id + '/edit'} }]" replaceUrl="true" queryParamsHandling="merge" class="btn btn-primary">
+                            <span class="fa fa-pencil"></span>
+                        </button>
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'colecao/'+ colecao.id + '/delete'} }]" replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger">
+                            <span class="fa fa-remove"></span>
+                        </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

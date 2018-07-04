@@ -10,6 +10,7 @@ import {
     UserMgmtComponent,
     UserDialogComponent,
     UserDeleteDialogComponent,
+    UserDetailComponent,
     UserMgmtDetailComponent,
     UserMgmtDialogComponent,
     UserMgmtDeleteDialogComponent,
@@ -41,6 +42,7 @@ import {
         UserMgmtComponent,
         UserDialogComponent,
         UserDeleteDialogComponent,
+        UserDetailComponent,
         UserMgmtDetailComponent,
         UserMgmtDialogComponent,
         UserMgmtDeleteDialogComponent,
@@ -54,6 +56,7 @@ import {
     ],
     entryComponents: [
         UserMgmtDialogComponent,
+        UserMgmtDetailComponent,
         UserMgmtDeleteDialogComponent,
         JhiHealthModalComponent,
         JhiMetricsMonitoringModalComponent,

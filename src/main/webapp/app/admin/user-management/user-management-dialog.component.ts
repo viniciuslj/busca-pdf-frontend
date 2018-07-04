@@ -18,6 +18,10 @@ export class UserMgmtDialogComponent implements OnInit {
     authorities: any[];
     isSaving: Boolean;
 
+    getFullName() {
+        return `${this.user.firstName} ${this.user.lastName}`;
+    }
+
     constructor(
         public activeModal: NgbActiveModal,
         private languageHelper: JhiLanguageHelper,

@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     registerAccount: any;
     success: boolean;
     modalRef: NgbModalRef;
+    inProcess: boolean;
 
     constructor(
         private languageService: JhiLanguageService,
@@ -28,6 +29,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         private elementRef: ElementRef,
         private renderer: Renderer
     ) {
+        this.inProcess = false;
     }
 
     ngOnInit() {
@@ -36,7 +38,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#login'), 'focus', []);
+        this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#firstName'), 'focus', []);
     }
 
     register() {
@@ -49,9 +51,17 @@ export class RegisterComponent implements OnInit, AfterViewInit {
             this.errorEmailExists = null;
             this.languageService.getCurrent().then((key) => {
                 this.registerAccount.langKey = key;
-                this.registerService.save(this.registerAccount).subscribe(() => {
-                    this.success = true;
-                }, (response) => this.processError(response));
+                this.inProcess = true;
+                this.registerService.save(this.registerAccount).subscribe(
+                    () => {
+                        this.inProcess = false;
+                        this.success = true;
+                    },
+                    (response) => {
+                        this.inProcess = false;
+                        this.processError(response);
+                    }
+                );
             });
         }
     }

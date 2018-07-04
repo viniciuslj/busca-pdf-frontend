@@ -11,14 +11,15 @@ import { UserModalService } from './user-modal.service';
     templateUrl: './user-management-delete-dialog.component.html'
 })
 export class UserMgmtDeleteDialogComponent {
-
     user: User;
+    inProcess: boolean;
 
     constructor(
         private userService: UserService,
         public activeModal: NgbActiveModal,
         private eventManager: JhiEventManager
     ) {
+        this.inProcess = false;
     }
 
     clear() {
@@ -26,11 +27,19 @@ export class UserMgmtDeleteDialogComponent {
     }
 
     confirmDelete(login) {
-        this.userService.delete(login).subscribe((response) => {
-            this.eventManager.broadcast({ name: 'userListModification',
-                content: 'Deleted a user'});
-            this.activeModal.dismiss(true);
-        });
+        this.inProcess = true;
+        this.userService.delete(login).subscribe(
+            (response) => {
+                this.inProcess = false;
+                this.eventManager.broadcast({ name: 'userListModification',
+                    content: 'Deleted a user'});
+                this.activeModal.dismiss(true);
+            },
+            (error) => {
+                this.inProcess = false;
+                console.error(error);
+            }
+        );
     }
 }
 

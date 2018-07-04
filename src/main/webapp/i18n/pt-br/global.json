@@ -1,6 +1,8 @@
 {
     "global": {
-        "title": "Buscapdf",
+        "title": "Busca PDF",
+        "yes": "Sim",
+        "Not": "Não",
         "browsehappy": "Você está usando um navegador <strong>desatualizado</strong>. Favor <a href=\"http://browsehappy.com/?locale=pt_BR\">atualizar o seu navegador</a> para ter uma experiência melhor.",
         "menu": {
             "home": "Início",
@@ -8,16 +10,23 @@
             "entities": {
                 "main": "Entidades",
                 "userExtra": "User Extra",
+                "tipoDocumento": "Tipos de Documentos",
+                "colecao": "Coleções de Documentos",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },
+            "bancodedados": {
+                "main": "Banco de Dados",
+                "colecao": "Coleções de Documentos"
             },
             "account": {
                 "main": "Conta",
                 "settings": "Configuração",
+                "mydata": "Meus Dados",
                 "password": "Senha",
                 "sessions": "Sessões",
                 "login": "Entrar",
                 "logout": "Sair",
-                "register": "Registrar"
+                "register": "Criar Conta"
             },
             "admin": {
                 "main": "Administração",
@@ -35,29 +44,26 @@
             "language": "Idioma"
         },
         "form": {
-            "username": "Usuário",
-            "username.placeholder": "Seu usuário",
+            "username": "Login",
+            "username.placeholder": "Ex.: joao.silva",
             "newpassword": "Nova senha",
             "newpassword.placeholder": "Nova senha",
             "confirmpassword": "Confirmação de nova senha",
             "confirmpassword.placeholder": "Confirme a nova senha",
             "email": "Email",
-            "email.placeholder": "Seu email"
+            "email.placeholder": "Ex.: joao.silva@email.com.br"
         },
         "messages": {
             "info": {
                 "authenticated": {
-                    "prefix": "Para ",
-                    "link": "entrar",
-                    "suffix": ", utilize as seguintes contas padrões:<br/>- Administrador (usuário=\"admin\" and senha=\"admin\") <br/>- Usuário (usuário=\"user\" and senha=\"user\")."
+                    "link": "Entrar"
                 },
                 "register": {
-                    "noaccount": "Não possui uma conta ainda?",
-                    "link": "Crie uma nova conta"
+                    "link": "Criar conta"
                 }
             },
             "error": {
-                "dontmatch" : "A senha e sua confirmação devem ser iguais!"
+                "dontmatch": "A senha e sua confirmação devem ser iguais!"
             },
             "validate": {
                 "newpassword": {
@@ -80,10 +86,10 @@
             }
         },
         "field": {
-            "id" : "Código"
+            "id": "Código"
         },
         "ribbon": {
-            "dev":"Development"
+            "dev": "Development"
         },
         "item-count": "Mostrando {{first}} - {{second}} de {{total}} resultados."
     },
@@ -95,7 +101,8 @@
             "cancel": "Cancelar",
             "delete": "Excluir",
             "edit": "Editar",
-            "open": "Open",
+            "open": "Abrir",
+            "close": "Fechar",
             "save": "Salvar",
             "view": "Visualizar"
         },
@@ -129,5 +136,5 @@
         "emailexists": "Este email já está cadastrado!",
         "idexists": "Novo(a) {{entityName}} não pode ter uma ID"
     },
-    "footer": "Este é o seu rodapé"
+    "footer": ""
 }

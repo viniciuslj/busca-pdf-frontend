@@ -51,7 +51,9 @@ module.exports = (options) => ({
                 // If this URL is left empty (""), then it will be relative to the current context.
                 // If you use an API server, in `prod` mode, you will need to enable CORS
                 // (see the `jhipster.cors` common JHipster property in the `application-*.yml` configurations)
-                SERVER_API_URL: `'http://localhost:8080/'`
+                SERVER_API_URL: (options.env === 'development') ?
+                    // `'http://http://10.243.22.13:8080/'` : `'https://buscapdf-backend.herokuapp.com/'`
+                    `'http://localhost:8080/'` : `'https://buscapdf-backend.herokuapp.com/'`
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({
@@ -82,7 +84,7 @@ module.exports = (options) => ({
             { from: './node_modules/swagger-ui/dist/lib', to: 'swagger-ui/dist/lib' },
             { from: './node_modules/swagger-ui/dist/swagger-ui.min.js', to: 'swagger-ui/dist/swagger-ui.min.js' },
             { from: './src/main/webapp/swagger-ui/', to: 'swagger-ui' },
-            { from: './src/main/webapp/favicon.ico', to: 'favicon.ico' },
+            { from: './src/main/webapp/favicon.png', to: 'favicon.png' },
             { from: './src/main/webapp/manifest.webapp', to: 'manifest.webapp' },
             // jhipster-needle-add-assets-to-webpack - JHipster will add/remove third-party resources in this array
             { from: './src/main/webapp/robots.txt', to: 'robots.txt' }
