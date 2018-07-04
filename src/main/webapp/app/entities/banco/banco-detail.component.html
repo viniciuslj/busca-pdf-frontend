@@ -1,0 +1,41 @@
+<div *ngIf="banco">
+    <h2><span jhiTranslate="buscapdfApp.banco.detail.title">Banco</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="buscapdfApp.banco.nome">Nome</span></dt>
+        <dd>
+            <span>{{banco.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="buscapdfApp.banco.descricao">Descricao</span></dt>
+        <dd>
+            <span>{{banco.descricao}}</span>
+        </dd>
+        <dt><span jhiTranslate="buscapdfApp.banco.indice">Indice</span></dt>
+        <dd>
+            <span>{{banco.indice}}</span>
+        </dd>
+
+        <dt><span jhiTranslate="buscapdfApp.banco.notificacao">Notificacao</span>
+            <i class="fa fa-bell" *ngIf="banco.notificacao; else notificacaoTemplate"></i>
+            <ng-template #notificacaoTemplate><i class="fa fa-bell-slash"></i></ng-template>        
+        </dt>
+        <dd></dd>
+
+        <dt><span jhiTranslate="buscapdfApp.banco.ativo">Ativo</span>
+            <span class="badge badge-pill badge-success" *ngIf="banco.ativo; else ativoTemplate">Sim</span>
+
+            <ng-template #ativoTemplate>
+                <span class="badge badge-pill badge-danger">Não</span>
+            </ng-template>
+        </dt>
+        <dd></dd>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+        <button type="button" [routerLink]="['/', { outlets: { popup: 'banco/'+ banco.id + '/edit'} }]" replaceUrl="true" queryParamsHandling="merge" class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,79 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBancoLabel" jhiTranslate="buscapdfApp.banco.home.createOrEditLabel">Create or edit a Banco</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!banco.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="banco.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="buscapdfApp.banco.nome" for="field_nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="field_nome" [(ngModel)]="banco.nome" required maxlength="100" />
+            <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                <small class="form-text text-danger" [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger" [hidden]="!editForm.controls.nome?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="buscapdfApp.banco.descricao" for="field_descricao">Descricao</label>
+            <input type="text" class="form-control" name="descricao" id="field_descricao" [(ngModel)]="banco.descricao" required maxlength="255" />
+            <div [hidden]="!(editForm.controls.descricao?.dirty && editForm.controls.descricao?.invalid)">
+                <small class="form-text text-danger" [hidden]="!editForm.controls.descricao?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger" [hidden]="!editForm.controls.descricao?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+                   This field cannot be longer than 255 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="buscapdfApp.banco.indice" for="field_indice">Indice</label>
+            <input type="text" class="form-control" name="indice" id="field_indice" [(ngModel)]="banco.indice" required maxlength="255" />
+            <div [hidden]="!(editForm.controls.indice?.dirty && editForm.controls.indice?.invalid)">
+                <small class="form-text text-danger" [hidden]="!editForm.controls.indice?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger" [hidden]="!editForm.controls.indice?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+                   This field cannot be longer than 255 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" class="" name="notificacao" id="field_notificacao" [(ngModel)]="banco.notificacao" />
+            <label class="" jhiTranslate="buscapdfApp.banco.notificacao" for="field_notificacao">Notificacao</label>
+
+            <div [hidden]="!(editForm.controls.notificacao?.dirty && editForm.controls.notificacao?.invalid)">
+                <small class="form-text text-danger" [hidden]="!editForm.controls.notificacao?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" class="" name="ativo" id="field_ativo" [(ngModel)]="banco.ativo" />
+            <label class="" jhiTranslate="buscapdfApp.banco.ativo" for="field_ativo">Ativo</label>
+
+            <div [hidden]="!(editForm.controls.ativo?.dirty && editForm.controls.ativo?.invalid)">
+                <small class="form-text text-danger" [hidden]="!editForm.controls.ativo?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
