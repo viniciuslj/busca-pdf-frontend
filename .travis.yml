@@ -1,0 +1,50 @@
+language: node_js
+
+node_js:
+  - "8.9.4"
+
+branches:
+  only:
+  - master
+  - develop
+
+cache:
+  directories:
+    - node
+    - node_modules
+    - $HOME/.yarn-cache
+
+env:
+  global:
+    - NODE_VERSION=8.9.4
+
+addons:
+  sonarcloud:
+    organization: viniciuslj-github
+    token:
+      secure: "F9V6H9svLB2rdIiuHaIM5aSn5MbL/mvLQAwHYhgUcGfEkyyLHj0pPoL5+zzjY+wauwfJYr34gW6Pk8UmEgObkMkMHc05RdO2MPiA+QVi0C9da8GhTptJTC6OuXmpJ70SspPz3mjibvTnzGOlhcQyiAMSIJN7J3D7GTsAqqp0bgUX5HZxMvxA+56xR7Ml/aDzXdvE7T8nP8GRtSN8Xtz6gNSKp6LroRJHTQQwImHSXiqTF6or3J54wLYVwP9ySVsL8a6ivImO5NMCUW47E/fxV0F9FimDhKAK23R9JjieOitKjUGQ6GhPdGEMGFcnR36WKCm1l6AT6TAR6xGaD2isqg3JsKu3VOSHcGBi1i1rdpUGmE6SN+wCr5ayrhLIq0ap+eHM5joixvCljIE0DyCqEMIBW1HHHemNMki1cA6V4w69uOaZ9H149A/VXq7DqfgxIyQsQ7wTFeRkxDwIMZ+2VAwckdGFAhzCpnnh5BGdDjc7GB8MoBWFtMCYjxr/zqmSSD3u/0Hv1hIGqerFNmMSJO9/NDeG/lgOXOVXQbomf9kxNvtBJrhU40XisIhi/wwqspOWPy7wwxPdA4+9XUTxIblkH/bVQB6P5BIc5hNNCu8FnBme2ZCnaT5EWc8g6Tb9Q+tdy5nMcNfupOgqU3Qf3w9/qO9f4N2pbEwTm4mg2zc="
+
+before_script:
+  - npm install -g --silent firebase-tools
+  - npm install -g --silent tslint-sonarts
+  - npm install -g --silent @angular/cli
+
+install:
+  - yarn install
+
+script:
+  - sonar-scanner
+  - yarn build
+
+notifications:
+  email: false
+  slack:
+    rooms:
+      secure: BfYrcr9eJAdrETYICOPXcj0aQG4wPV+wFEMpFGgOpl5dlim3Pk/Io4iuuXAYrVcRAppBdCiW/Xwobw2caagxtHKeyNrrJkjHRvLIneMnl3aIMuGy5Ig6eAb7Vtg9h1WmZ6K7tMfwcbqWUZIp+NqcfUiUvXI0vubVKEvxpwWN2is//McYrt1Z/HnoGkyNBCeZIwAmbOn+SW+1wZD3I7Pg7qMZcA/iH8UwB+krp36L1G0edea9t+nt9tw9HnVhrwSgWrcYa2uxOr4Id9z4R8HWLNoatia18QgOSnjrDUosA3cHKf5JvgkPjPd77Sox9DYFAzSxOdEIxO24XYDz7XpRg2HDkp+DK8kTROUCLuqKE0LcBW0ohUXSSXj3A9d5+sODjykqWVUe6MnTj86Qwe4glSelFYrhzuzwjimxBDGUiIXxKfLTP04u/ON9QkmrCuDEAqbyorrjw7ytP9KMNgT3gn5ReysFY7q0EDCqdty/8eMWv29vtSQuTr+C/VU2XX7s43LzDE3REs9rvH7u4b+nwPN99R4Fns6K1DnK5e1cOUaEDtLZ4F+pUBYq/zFdqgPxexukuvgv785VEzoRvFx19a6mXHZIDS2yqeoDinYMFzeB9ql7BY+lpI32IAomUABxlseqhcPUkNX82DCfNspr/TeZdDiVV9Zt2ZGbe+J76Eg=
+
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+    secure: "orenmdk6Oqi+2EsmH+vW3s6ABP8DdunU9mU5ILSqVbYU7jgoYJRCoivdq3annDCxp70PrB8lwgENwxZXvCrcgC/38INs+tMXwzap5pdV7c4aajct/ZShI47dUIp1KAWym1yxQ2933WrxmM+CQu2HDUfkNuldm7/ByjTU2fdtDPIdN6eT5o7J8yM1zxc/3fA1iGsrrsQF4OH7PRcDRVdS41nbuVmQ4S98hiXZYh43Q1yc/MUy66IKspaG5oDWjVSS32q33eV4DhbOfzVL1rHJN83RX9qyvWGFeb2SUezSQdoHmh1D3PgHBNfJJ0+NcD3jC8Dif5Gfan34pU6FOi5uvljYr1oLADB7ev8ZUXSpsW7wDYnLISDwJoto5aIqd+qCjnqI8fBThIH6YDGThi2FvnqGKY2QrwYI2lr0+MumsXVAXPTggGlOh16oXPXzHM9MMccDrMbDdIVydo61k5Y2CFCA9kvehRFlUnaxNgSl3kVfEjw0Aw2QX/VKTSVVTgEIoBjmh2LYa+AUmki/m48Ay5Z3iDNLzPCq80GVD+0lwFlcEYNP4x9ouleroj7+xasT2bgSF6BjJALfVrHPkxsmbN0yh6v2HrIwISdaOyjNGr45iCiwbHmvJeJKX0NacDb/gYjEgkuv80i4iXaxgEKp5BJ3sRNQLs5MLRuuTjaEhe8="
+  on: master
