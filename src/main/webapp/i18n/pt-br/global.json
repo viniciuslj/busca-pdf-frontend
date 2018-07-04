@@ -11,7 +11,12 @@
                 "main": "Entidades",
                 "userExtra": "User Extra",
                 "tipoDocumento": "Tipos de Documentos",
+                "colecao": "Coleções de Documentos",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },
+            "bancodedados": {
+                "main": "Banco de Dados",
+                "colecao": "Coleções de Documentos"
             },
             "account": {
                 "main": "Conta",
