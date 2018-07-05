@@ -10,6 +10,7 @@ import { Documento } from './documento.model';
 import { DocumentoPopupService } from './documento-popup.service';
 import { DocumentoService } from './documento.service';
 import { Diretorio, DiretorioService } from '../diretorio';
+import { Message } from 'primeng/components/common/message';
 
 @Component({
     selector: 'jhi-documento-dialog',
@@ -83,6 +84,17 @@ export class DocumentoDialogComponent implements OnInit {
 export class DocumentoPopupComponent implements OnInit, OnDestroy {
 
     routeSub: any;
+
+    msgs: Message[];
+    uploadedFiles: any[] = [];
+    onUpload(event) {
+        for (const file of event.files) {
+            this.uploadedFiles.push(file);
+        }
+
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
+    }
 
     constructor(
         private route: ActivatedRoute,

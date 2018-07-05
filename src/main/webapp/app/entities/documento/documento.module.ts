@@ -17,6 +17,8 @@ import {
     documentoPopupRoute,
 } from './';
 
+import {FileUploadModule} from 'primeng/fileupload';
+
 const ENTITY_STATES = [
     ...documentoRoute,
     ...documentoPopupRoute,
@@ -26,7 +28,8 @@ const ENTITY_STATES = [
     imports: [
         BuscapdfSharedModule,
         RouterModule.forChild(ENTITY_STATES),
-        ButtonModule
+        ButtonModule,
+        FileUploadModule
     ],
     declarations: [
         DocumentoComponent,
