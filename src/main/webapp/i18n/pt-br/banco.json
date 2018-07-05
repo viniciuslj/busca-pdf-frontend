@@ -2,18 +2,18 @@
     "buscapdfApp": {
         "banco": {
             "home": {
-                "title": "Bancos de Documentos",
+                "title": "Bancos de Diretórios",
                 "createLabel": "Novo",
-                "createOrEditLabel": "Criar ou editar Banco de Documentos"
+                "createOrEditLabel": "Criar ou editar Banco de Diretórios"
             },
-            "created": "Um novo Banco de Documentos foi criado com o identificador {{ param }}",
-            "updated": "Um Banco de Documentos foi atualizado com o identificador {{ param }}",
-            "deleted": "Um Banco de Documentos foi deletado com o nome {{ nome }}",
+            "created": "Um novo Banco de Diretórios foi criado com o identificador {{ param }}",
+            "updated": "Um Banco de Diretórios foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Banco de Diretórios foi deletado com o nome {{ nome }}",
             "delete": {
-                "question": "Tem certeza de que deseja excluir o Banco de Documentos {{ nome }}?"
+                "question": "Tem certeza de que deseja excluir o Banco de Diretórios {{ nome }}?"
             },
             "detail": {
-                "title": "Banco de Documentos"
+                "title": "Banco de Diretórios"
             },
             "nome": "Nome",
             "descricao": "Descrição",
