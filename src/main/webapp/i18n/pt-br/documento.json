@@ -1,0 +1,26 @@
+
+{
+    "buscapdfApp": {
+        "documento" : {
+            "home": {
+                "title": "Documentos",
+                "createLabel": "Enviar Documento",
+                "createOrEditLabel": "Enviar ou editar Documento"
+            },
+            "created": "Um novo Documento foi criado com o identificador {{ param }}",
+            "updated": "Um Documento foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Documento foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir o Documento {{ nomeArquivo }}?"
+            },
+            "detail": {
+                "title": "Documento"
+            },
+            "nome": "Nome",
+            "descricao": "Descrição",
+            "complementoDiretorio": "Complemento de Diretório",
+            "nomeArquivo": "Nome do Arquivo",
+            "diretorio": "Diretório"
+        }
+    }
+}

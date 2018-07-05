@@ -1,0 +1,53 @@
+
+<div *ngIf="documento">
+    <h2><span jhiTranslate="buscapdfApp.documento.detail.title">Documento</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="buscapdfApp.documento.nome">Nome</span></dt>
+        <dd>
+            <span>{{documento.nome}}</span>
+        </dd>
+
+        <dt><span jhiTranslate="buscapdfApp.documento.descricao">Descricao</span></dt>
+        <dd>
+            <span>{{documento.descricao}}</span>
+        </dd>
+
+        <dt><span jhiTranslate="buscapdfApp.documento.complementoDiretorio">Complemento Diretorio</span></dt>
+        <dd>
+            <span *ngIf="documento.complementoDiretorio; else complementoDiretorioTemplate">
+                <span>{{documento.complementoDiretorio}}</span>
+            </span>
+            <ng-template #complementoDiretorioTemplate>
+                <span class="badge badge-secondary">Não definido</span>
+            </ng-template>
+        </dd>
+
+        <dt><span jhiTranslate="buscapdfApp.documento.nomeArquivo">Nome Arquivo</span></dt>
+        <dd>
+            <span>{{documento.nomeArquivo}}</span>
+        </dd>
+
+        <dt><span jhiTranslate="buscapdfApp.documento.diretorio">Diretorio</span></dt>
+        <dd>
+            <div *ngIf="documento.diretorio">
+                <a [routerLink]="['/diretorio', documento.diretorio?.id]">{{documento.diretorio?.nome}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'documento/'+ documento.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

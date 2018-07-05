@@ -3,6 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BuscapdfUserExtraModule } from './user-extra/user-extra.module';
 import { BuscapdfBancoModule } from './banco/banco.module';
 import { BuscapdfDiretorioModule } from './diretorio/diretorio.module';
+import { BuscapdfDocumentoModule } from './documento/documento.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -10,6 +11,7 @@ import { BuscapdfDiretorioModule } from './diretorio/diretorio.module';
         BuscapdfUserExtraModule,
         BuscapdfBancoModule,
         BuscapdfDiretorioModule,
+        BuscapdfDocumentoModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
