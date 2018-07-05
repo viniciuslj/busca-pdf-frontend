@@ -1,6 +1,8 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import {ButtonModule} from 'primeng/button';
+
 import { BuscapdfSharedModule } from '../../shared';
 import {
     DocumentoService,
@@ -23,7 +25,8 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         BuscapdfSharedModule,
-        RouterModule.forChild(ENTITY_STATES)
+        RouterModule.forChild(ENTITY_STATES),
+        ButtonModule
     ],
     declarations: [
         DocumentoComponent,
