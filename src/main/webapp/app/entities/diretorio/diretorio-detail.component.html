@@ -1,0 +1,40 @@
+
+<div *ngIf="diretorio">
+    <h2><span jhiTranslate="buscapdfApp.diretorio.detail.title">Diretorio</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="buscapdfApp.diretorio.nome">Nome</span></dt>
+        <dd>
+            <span>{{diretorio.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="buscapdfApp.diretorio.descricao">Descricao</span></dt>
+        <dd>
+            <span>{{diretorio.descricao}}</span>
+        </dd>
+        <dt><span jhiTranslate="buscapdfApp.diretorio.path">Path</span></dt>
+        <dd>
+            <span>{{diretorio.path}}</span>
+        </dd>
+        <dt><span jhiTranslate="buscapdfApp.diretorio.banco">Banco</span></dt>
+        <dd>
+            <div *ngIf="diretorio.banco">
+                <a [routerLink]="['/banco', diretorio.banco?.id]">{{diretorio.banco?.nome}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'diretorio/'+ diretorio.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

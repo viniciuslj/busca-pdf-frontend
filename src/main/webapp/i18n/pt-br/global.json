@@ -12,6 +12,7 @@
                 "main": "Entidades",
                 "userExtra": "User Extra",
                 "banco": "Bancos de Documentos",
+                "diretorio": "Diretório de Documentos",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,27 @@
+
+{
+    "buscapdfApp": {
+        "diretorio" : {
+            "home": {
+                "title": "Diretórios de Documentos",
+                "createLabel": "Novo",
+                "createOrEditLabel": "Criar ou editar Diretório"
+            },
+            "created": "Um novo Diretório de Documentos foi criado com o identificador {{ param }}",
+            "updated": "Um Diretório de Documentos foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Diretório de Documentos foi deletado com o identificador {{ param }}",
+
+            "delete": {
+                "question": "Tem certeza de que deseja excluir o Diretório de Documentos {{ nome }}?"
+            },
+
+            "detail": {
+                "title": "Diretórios de Documentos"
+            },
+            "nome": "Nome",
+            "descricao": "Descrição",
+            "path": "Path no Servidor",
+            "banco": "Banco"
+        }
+    }
+}
